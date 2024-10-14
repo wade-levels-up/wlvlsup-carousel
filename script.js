@@ -1,11 +1,14 @@
+autoloop = true;
 let slide = 1;
 displaySlides(slide);
 
 function navigateSlide(n) {
+  autoloop = false;
   displaySlides((slide += n));
 }
 
 function currentSlide(n) {
+  autoloop = false;
   displaySlides(n);
 }
 
@@ -30,4 +33,11 @@ function displaySlides(n) {
 
   slides[slideIndex - 1].style.display = "block";
   navDots[slideIndex - 1].classList.add("active");
+  if (autoloop) {
+    setTimeout(() => {
+      if (autoloop) {
+        displaySlides((slide += 1));
+      }
+    }, 5000);
+  }
 }
