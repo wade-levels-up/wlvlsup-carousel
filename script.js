@@ -21,11 +21,13 @@ function displaySlides(n) {
     slideIndex = slides.length;
   }
 
+  slide = slideIndex;
+
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
     navDots[i].classList.remove("active");
   }
 
-  slides[n - 1].style.display = "block";
-  navDots[n - 1].classList.add("active");
+  slides[slideIndex - 1].style.display = "block";
+  navDots[slideIndex - 1].classList.add("active");
 }
